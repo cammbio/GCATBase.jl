@@ -3,7 +3,9 @@ name: Documentation
 on:
   push:
     branches:
-      - main
+      - master
+      - develop
+      - release/.*
     tags: '*'
   pull_request:
 
@@ -11,22 +13,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v2
       - uses: julia-actions/setup-julia@v1
         with:
-          version: '1.12'
+          version: '1'
       - name: Install dependencies
-        run: |
-          using Pkg
-          Pkg.activate("docs")
-          Pkg.instantiate()
-        shell: julia --color=yes {0}
-      - name: Build and deploy documentation
-        run: |
-          using Pkg
-          Pkg.activate("docs")
-          # Pkg.add("Documenter")
-          include("docs/make.jl")
-        shell: julia --color=yes {0}
+        run: julia --color=yes --project=docs/ -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate()'
+      - name: Build and deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # For authentication with GitHub Actions token
+          DOCUMENTER_KEY: ${{ secrets.DOCUMENTER_KEY }} # For authentication with SSH deploy key
+        run: julia --color=yes --project=docs/ docs/make.jl
