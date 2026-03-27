@@ -24,8 +24,8 @@ jobs:
       - name: Build and deploy documentation
         run: |
           using Pkg
-          Pkg.activate(".")
-          Pkg.add("Documenter")
+          Pkg.activate("docs")
+          # Pkg.add("Documenter")
           include("docs/make.jl")
         shell: julia --color=yes {0}
         env:
