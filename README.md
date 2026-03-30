@@ -1,6 +1,7 @@
 # `GCATBase.jl`
 
 [![Documentation](https://img.shields.io/badge/docs-stable-blue.svg)](https://cammbio.github.io/GCATBase.jl)
+[![Documentation](https://img.shields.io/badge/docs-stable-blue.svg)](https://cammbio.github.io/GCATBase.jl/stable)
 
 GCATBase (**G**enetic **C**ode **A**nalysis **T**oolkit) is designed to support the analysis of DNA or RNA sequences based on coding theory and the structure of the genetic code. It serves as a base package and is supplemented by additional packages. Examples for coding theory in molecular biology are below [1,2].
 
