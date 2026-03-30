@@ -1,7 +1,7 @@
 # `BioCodes.jl`
 
 [![Documentation](https://img.shields.io/badge/docs-dev-blue.svg)](https://cammbio.github.io/BioCodes.jl/dev)
-[![Documentation](https://img.shields.io/badge/docs-stable-blue.svg)](https://cammbio.github.io/BioCodes.jl/stable)
+[![Documentation](https://img.shields.io/badge/docs-stable-blue.svg)](https://cammbio.github.io/BioCodes.jl/stable/)
 
 BioCodes is designed to support the analysis of DNA or RNA sequences based on coding theory and the structure of the genetic code. It serves as a base package and is supplemented by additional packages. Examples for coding theory in molecular biology are below [1,2].
 
